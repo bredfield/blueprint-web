@@ -1,0 +1,45 @@
+.section{
+  padding-top:120px;
+
+  img{
+    max-width:100%;
+  }
+}
+
+.section-first{
+  padding-top:0;
+  margin-top:126px;
+}
+
+.section-padding-bottom{
+  padding-bottom:150px;
+}
+
+.section-black{
+  background:@black;
+  .section-text{
+    .text-white;
+  }
+}
+
+//Section content
+.section-title{
+  .text-primary; //orange
+  font-family:@font-family-sans-serif;
+  margin-bottom:48px;
+  margin-top:8px;
+}
+
+.section-text{
+  font-size:18px;
+  margin-top:0px;
+  margin-bottom:50px;
+}
+
+@media (max-width: @screen-md){
+  .section-first{
+    margin-top:0;
+  }
+} 
+
+

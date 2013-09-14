@@ -1,0 +1,45 @@
+.revolver{
+  position:relative;
+  overflow:hidden;
+  .revolver-indicators{
+    .carousel-indicators;
+  }
+  .item{
+    // opacity:0;
+    display:none;
+
+    >img{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      display:none;
+    }
+
+    &.active{
+      // display:block;
+    }
+  }
+
+  .item-content{
+    position:relative;
+    padding-top:200px;
+  }
+
+  .item-title{
+    .text-white;
+    margin-bottom:60px;
+  }
+  .item-text{
+    .section-text;
+    .text-white;
+  }
+  .item-detail-text{
+    margin-left:10px;
+  }
+
+}
+
+#featured-revolver{
+  height:600px;
+}
