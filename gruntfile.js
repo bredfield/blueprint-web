@@ -6,6 +6,8 @@ grunt.initConfig({
     dist: {
       src: [
         //Libraries go Here
+        'assets/javascripts/libs/jquery-2.0.3.js',
+        'assets/javascripts/libs/angular.min.js',
         'assets/javascripts/app.js'
       ],
       dest: 'assets/javascripts/dist/main.js'
@@ -40,13 +42,24 @@ grunt.initConfig({
     }
   },
   coffee: {
-    compile: {
-      files: {
+    scripts: {
+      files:{
         'assets/javascripts/app.js':[
           //Extra app .coffee files go here
           'assets/javascripts/app.coffee'
         ]
       }
+    },
+    tests: {
+      files:{
+        "assets/javascripts/tests/unit/main.js":"assets/javascripts/tests/unit/**/*.coffee"
+      }
+    }
+  },
+  karma:{
+    unit: {
+      configFile: 'assets/javascripts/tests/karma.conf.js',
+      singleRun: false
     }
   },
   haml: {
@@ -57,9 +70,13 @@ grunt.initConfig({
     }
   },
   watch: {
-    coffee: {
+    scripts: {
       files: 'assets/javascripts/**/*.coffee',
-      tasks: ['coffee', 'concat']
+      tasks: ['coffee:scripts', 'concat']
+    },
+    tests:{
+      files: ['assets/javascripts/tests/**/*.coffee'],
+      tasks: ['coffee:tests']
     },
     styles: {
       files: 'assets/stylesheets/**/*.less',
@@ -79,8 +96,9 @@ grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-coffee');
 grunt.loadNpmTasks('grunt-contrib-haml');
+grunt.loadNpmTasks('grunt-karma');
 
-// Tasks.
+// Tasks
 grunt.registerTask('default', ['reset']);
 grunt.registerTask('reset', ['haml','coffee', 'concat', 'less:development', 'watch']);
 grunt.registerTask('launch', ['uglify','less:production']);

@@ -1,2 +1,1 @@
-$ ->
-  console.log "Blueprint loaded!"
+console.log "Blueprint loaded!"

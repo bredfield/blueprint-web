@@ -1,6 +1,4 @@
 (function() {
-  $(function() {
-    return console.log("Blueprint loaded!");
-  });
+  console.log("Blueprint loaded!");
 
 }).call(this);
