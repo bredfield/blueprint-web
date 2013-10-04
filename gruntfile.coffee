@@ -37,10 +37,6 @@ module.exports = (grunt) ->
       unit:
         configFile: "assets/javascripts/tests/karma.conf.js"
         singleRun: false
-    haml:
-      dist:
-        files:
-          "index.html": "index.haml"
     watch:
       scripts:
         files: "assets/javascripts/**/*.coffee"
@@ -51,9 +47,6 @@ module.exports = (grunt) ->
       styles:
         files: "assets/stylesheets/**/*.less"
         tasks: ["less:development"]
-      haml:
-        files: "index.haml"
-        tasks: ["haml"]
   
   # Load the plugins
   grunt.loadNpmTasks "grunt-contrib-uglify"
@@ -61,10 +54,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-less"
   grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-contrib-haml"
   grunt.loadNpmTasks "grunt-karma"
   
   # Tasks
   grunt.registerTask "default", ["reset"]
-  grunt.registerTask "reset", ["haml", "coffee", "concat", "less:development", "watch"]
+  grunt.registerTask "reset", ["coffee", "concat", "less:development", "watch"]
   grunt.registerTask "launch", ["uglify", "less:production"]
