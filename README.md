@@ -1,6 +1,6 @@
 # Blueprint (Web)
 
-Blueprint is a slightly opinionated front-end template for jump starting web projects. It can be utilized on it's own, or within a larger system (Wordpress, for example). 
+Blueprint is a slightly opinionated front-end template for jump starting web projects. It can be utilized fully or in pieces; on it's own, or within a larger system (Wordpress, for example). 
 
 ## Includes:
 
