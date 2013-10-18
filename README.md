@@ -11,7 +11,7 @@ Blueprint is a slightly opinionated front-end template for jump starting web pro
 * [Bootstrap](http://getbootstrap.com) 3.0
 * [Angular](http://angularjs.org/)
 * [Karma](http://karma-runner.github.io/0.10/index.html) testing suite
-* Commonly used JS libraries ([jQuery](http://jquery.com/),etc.)
+* Commonly used JS libraries ([jQuery](http://jquery.com/), etc.)
 
 ## Prerequisites:
 
