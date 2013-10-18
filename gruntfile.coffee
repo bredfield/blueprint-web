@@ -5,31 +5,37 @@ module.exports = (grunt) ->
     concat:
       dist:
         #Libraries go Here
-        src: ["assets/javascripts/libs/jquery-2.0.3.js", "assets/javascripts/libs/angular.min.js", "assets/javascripts/app.js"]
-        dest: "assets/javascripts/dist/main.js"
+        src: [
+          "assets/components/jquery/jquery.js",
+          "assets/components/angular/angular.js",
+          "assets/javascripts/<%= pkg.name %>.js"
+        ]
+        dest: "assets/javascripts/application.js"
     uglify:
       options:
         banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
       build:
-        src: "assets/javascripts/dist/main.js"
-        dest: "build/main.min.js"
+        src: "assets/javascripts/application.js"
+        dest: "application.min.js"
     less:
       development:
         options:
           paths: ["assets/stylesheets"]
         files:
-          "assets/stylesheets/style.css": "assets/stylesheets/style.less"
+          "assets/stylesheets/application.css": "assets/stylesheets/<%= pkg.name %>.less"
       production:
         options:
           paths: ["assets/stylesheets"]
           yuicompress: true
         files:
-          "style.css": "assets/stylesheets/style.less"
+          "application.min.css": "assets/stylesheets/<%= pkg.name %>.less"
     coffee:
       scripts:
         files:    
           #Extra app .coffee files go here
-          "assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
+          "assets/javascripts/<%= pkg.name %>.js": [
+            "assets/javascripts/<%= pkg.name %>.coffee"
+          ]
       tests:
         files:
           "assets/javascripts/tests/unit/main.js": "assets/javascripts/tests/unit/**/*.coffee"
